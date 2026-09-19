@@ -1,8 +1,12 @@
 import streamlit as st
+import subprocess
 
 st.write("Inicio")
 
-import sklearn
+resultado = subprocess.run(
+    ["pip", "list"],
+    capture_output=True,
+    text=True
+)
 
-st.write("scikit-learn instalado")
-st.write(sklearn.__version__)
+st.text(resultado.stdout)
