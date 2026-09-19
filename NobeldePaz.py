@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 #from sklearn.naive_bayes import MultinomialNB
 from sklearn.ensemble import RandomForestClassifier
-from google.colab import files
+
 
 st.write(''' # Nobel Prize category prediction''')
 st.image("NobeldePaz.png", caption="Its creator was the Swedish inventor Alfred Nobel through his will in 1895.")
