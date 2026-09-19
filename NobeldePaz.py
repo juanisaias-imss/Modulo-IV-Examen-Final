@@ -1,5 +1,7 @@
 import streamlit as st
-import sys
+import os
 
-st.write("Python:")
-st.write(sys.version)
+st.write("Archivos encontrados:")
+
+for archivo in os.listdir("."):
+    st.write(archivo)
