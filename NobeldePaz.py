@@ -55,7 +55,7 @@ rf = RandomForestClassifier(
 )
 
 rf.fit(X_dtm, y)
-
+prediction = ""
 df_dtm = vect.transform(df['Motivation'])
 prediction = rf.predict(df_dtm)
 
