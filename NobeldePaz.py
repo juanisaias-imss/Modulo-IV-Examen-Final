@@ -25,8 +25,21 @@ df = user_input_features()
 
 url3 = "https://raw.githubusercontent.com/juanisaias-imss/Modulo-IV-Examen-Final/refs/heads/main/nobel_consolidado.csv"
 nobel =  pd.read_csv(url3, encoding='utf-8')
+
+#codificación numérica manual (Label Encoding)
+nobel['label_num'] = nobel['Category'].map({
+    'chemistry': 0,
+    'economics': 1,
+    'literature': 2,
+    'medicine': 3,
+    'peace': 4,
+    'physics': 5
+})
+
 X = nobel.Motivation
-y = nobel.Category
+y = nobel.label_num
+
+
 
 vect = CountVectorizer()
 
@@ -45,8 +58,11 @@ rf.fit(X_dtm, y)
 df_dtm = vect.transform(df['Motivation'])
 prediction = rf.predict(df_dtm)
 
-{'physics':0, 'medicine':1, 'peace':2, 'literature':3, 'chemistry':4, 'economics':5}
+#{'physics':0, 'medicine':1, 'peace':2, 'literature':3, 'chemistry':4, 'economics':5}
+
 #'Physics', 'Medicine', 'Peace', 'Literature', 'Chemistry', 'Economics'
+
+
 st.subheader('Predicción')
 if prediction == 0:
   st.write('Physics')
