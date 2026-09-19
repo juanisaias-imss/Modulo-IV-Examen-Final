@@ -1,12 +1,5 @@
 import streamlit as st
-import subprocess
+import sys
 
-st.write("Inicio")
-
-resultado = subprocess.run(
-    ["pip", "list"],
-    capture_output=True,
-    text=True
-)
-
-st.text(resultado.stdout)
+st.write("Python:")
+st.write(sys.version)
