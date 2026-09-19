@@ -13,7 +13,8 @@ st.header('Motivation')
 
 def user_input_features():
   # Entrada
-  texto = st.text_input("Enter the text to be evaluated")
+  texto = st.text_input("Enter the text to be evaluated", value="")
+  
 
   user_input_data = {'Motivation': texto}
 
@@ -59,10 +60,7 @@ df_dtm = vect.transform(df['Motivation'])
 prediction = rf.predict(df_dtm)
 
 #{'physics':0, 'medicine':1, 'peace':2, 'literature':3, 'chemistry':4, 'economics':5}
-
 #'Physics', 'Medicine', 'Peace', 'Literature', 'Chemistry', 'Economics'
-
-
 st.subheader('Predicción')
 if prediction == 0:
   st.write('Physics')
